@@ -4,6 +4,7 @@
   "version": "0.1.1",
   "description": "A real-time intelligence console for planet Earth — photorealistic 3D globe, live aircraft/ships/satellites/earthquakes/CCTV, and hands-free voice control. Runs in a browser.",
   "type": "module",
+  "main": "electron/main.mjs",
   "license": "MIT",
   "author": "Bilawal Sidhu",
   "homepage": "https://github.com/bilawalsidhu/gods-eye-view#readme",
@@ -42,7 +43,10 @@
     "opensky:import": "./scripts/opensky-import-client.sh",
     "build": "vite build",
     "preview": "vite preview",
+    "app": "electron .",
+    "electron:icons": "node electron/scripts/make-icons.mjs",
     "test": "node scripts/run-unit-tests.mjs",
+    "test:electron": "node --test \"electron/*.test.mjs\"",
     "test:track": "node scripts/track-regression.mjs",
     "qa:map-source-tray": "node scripts/qa-map-source-tray.mjs",
     "check:boundaries": "node scripts/check-import-directions.mjs && node scripts/check-package-boundaries.mjs",
@@ -61,6 +65,7 @@
     "satellite.js": "^6.0.2"
   },
   "devDependencies": {
+    "electron": "^44.5.1",
     "prettier": "3.9.6",
     "puppeteer": "^25.10.0",
     "sharp": "^0.35.4",
